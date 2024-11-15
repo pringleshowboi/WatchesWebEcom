@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order Confirmation</title>
+</head>
+<body>
+    <header>
+        <h1>Thank you for your order!</h1>
+    </header>
+
+    <section>
+        <p>Your order has been successfully placed. You will receive a confirmation email shortly.</p>
+        <p><strong>Order Details:</strong></p>
+        <ul>
+            {% for item in order.items %}
+                <li>{{ item.name }} - Quantity: {{ item.quantity }} - ${{ item.price }}</li>
+            {% endfor %}
+        </ul>
+        <p><strong>Total: ${{ order.total_price }}</strong></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Watch Store. All rights reserved.</p>
+    </footer>
+</body>
+</html>

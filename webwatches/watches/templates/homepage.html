@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Watches E-Commerce</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="{% static "js/index.js" %}"></script>
+    <link rel="stylesheet" href="{% static "css/stylehomepage.css" %}">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Our Watch Shop</h1>
+        <nav>
+            <a href="{% url 'watches:product_list' %}">Browse Watches</a> |
+            <a href="{% url 'watches:cart' %}">View Cart</a> |
+            <a href="{% url 'accounts:home'%}">Not a member?</a> |
+        </nav>
+    </header>
+
+    <section>
+        <div id="watch-display"></div>
+        <h2>Featured Watches</h2>
+        <div class="featured-watches">
+            {% for watch in watches %}
+                <div class="watch-item">
+                    <a href="{% url 'watches:product_detail' watch.id %}">
+                        <img src="{{ watch.image.url }}" alt="{{ watch.name }}">
+                        <h3>{{ watch.name }}</h3>
+                        <p>${{ watch.price }}</p>
+                    </a>
+                </div>
+            {% empty %}
+                <p>No featured watches available.</p>
+            {% endfor %}
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Watch Store. All rights reserved.</p>
+    </footer>
+</body>
+</html>

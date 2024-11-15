@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homepage</title>
+</head>
+<body>
+    <h1>Welcome to the WebWatches Account Homepage</h1>
+    
+    {% if user.is_authenticated %}
+        <p>Hello, {{ user.username }}!</p>
+        <a href="{% url 'accounts:logout' %}">Logout</a>
+    {% else %}
+        <p>You are not logged in.</p>
+        <a href="{% url 'accounts:login' %}">Login</a> | <a href="{% url 'accounts:register' %}">Register</a>
+    {% endif %}
+</body>
+</html>

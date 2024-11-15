@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Checkout</title>
+</head>
+<body>
+    <header>
+        <h1>Checkout</h1>
+        <nav>
+            <a href="{% url 'watches:homepage' %}">Home</a> |
+            <a href="{% url 'watches:cart' %}">View Cart</a>
+        </nav>
+    </header>
+
+    <section>
+        <form method="POST" action="{% url 'watches:checkout' %}">
+            {% csrf_token %}
+            <label for="address">Shipping Address:</label>
+            <textarea name="address" required></textarea>
+
+            <label for="payment">Payment Method:</label>
+            <select name="payment" required>
+                <option value="credit_card">Credit Card</option>
+                <option value="paypal">PayPal</option>
+            </select>
+
+            <button type="submit">Place Order</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Watch Store. All rights reserved.</p>
+    </footer>
+</body>
+</html>

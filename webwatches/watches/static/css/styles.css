@@ -1,0 +1,39 @@
+.watch-item {
+    text-align: center;
+    margin: 15px 0;
+}
+.watch-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+.product-list .card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.product-list .card-body {
+    padding: 15px;
+}
+.product-list .card-title {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+}
+.product-list .card-text {
+    font-size: 1.1rem;
+    color: #555;
+}
+.btn-custom {
+    background-color: #007bff;
+    color: white;
+    border: none;
+}
+.btn-custom:hover {
+    background-color: #0056b3;
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ watch.name }} - Product Detail</title>
+</head>
+<body>
+    <header>
+        <h1>{{ watch.name }}</h1>
+        <nav>
+            <a href="{% url 'watches:homepage' %}">Home</a> |
+            <a href="{% url 'watches:product_list' %}">Browse Watches</a> |
+            <a href="{% url 'watches:cart' %}">View Cart</a>
+        </nav>
+    </header>
+
+    <section>
+        <div class="product-detail">
+            <img src="{{ watch.image.url }}" alt="{{ watch.name }}">
+            <h2>${{ watch.price }}</h2>
+            <p>{{ watch.description }}</p>
+            <form method="POST" action="{% url 'watches:add_to_cart' watch.id %}">
+                {% csrf_token %}
+                <button type="submit">Add to Cart</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Watch Store. All rights reserved.</p>
+    </footer>
+</body>
+</html>
